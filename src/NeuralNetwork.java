@@ -6,12 +6,12 @@ public class NeuralNetwork {
     public Node[] outputLayer;
 
     public NeuralNetwork(int inputLayerSize, int[] hiddenLayer, int outputLayerSize){
-
+        //inputLayer is the array which contains the number of nodes in the input layer 
         inputLayer = new Node[inputLayerSize];
         for (int i = 0; i < inputLayerSize; i++) {
             inputLayer[i] = new Node();
         }
-
+            //hiddenLayers is the array which contains the number of hidden layers, and however many nodes exist in each layer
         hiddenLayers = new ArrayList[hiddenLayer.length];
         for (int i = 0; i < hiddenLayer.length; i++) {
             hiddenLayers[i] = new ArrayList<Node>();
@@ -19,7 +19,7 @@ public class NeuralNetwork {
                 hiddenLayers[i].add(new Node());
             }
         }
-
+        //outputLayer is the array that contains the output nodes
         outputLayer = new Node[outputLayerSize];
         for (int i = 0; i < outputLayerSize; i++) {
             outputLayer[i] = new Node();
@@ -56,7 +56,7 @@ public class NeuralNetwork {
     }
 
     public void addLink(Node source, Node dest){
-        Link link = new Link(source, dest);
+        Link link = new Link(source, dest, 0);
         source.outputLinks.add(link);
         dest.inputLinks.add(link);
     }
